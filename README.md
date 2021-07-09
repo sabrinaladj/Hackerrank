@@ -1,2 +1,1 @@
-# Hackerrank
-Coding Practice
+
