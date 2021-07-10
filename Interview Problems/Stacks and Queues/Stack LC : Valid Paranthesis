@@ -1,0 +1,31 @@
+class Solution {
+    public boolean isValid(String s) {
+        
+        // STACK MUST BE EVEN 
+        if (s.length() % 2 != 0 ){
+            return false;
+        }
+        
+        // we want to create the stack and put char in it
+        Stack<Character> stack = new Stack();
+        for (char c : s.toCharArray()) { // method that puts char to array{
+            if (c == '(' || c == '{' || c == '[') {
+                stack.push(c); // push c into the stack
+            }
+            else if (c == ')' && !stack.isEmpty() && stack.peek() == '(' ){
+                stack.pop(); 
+            }
+             else if (c == '}' && !stack.isEmpty() && stack.peek() =='{'){
+                stack.pop(); 
+            }
+            else if (c == ']' && !stack.isEmpty() && stack.peek() == '[' ){
+                stack.pop(); 
+            }
+            else { // must have final else statement 
+                return false; 
+            }
+        }
+    
+        return stack.isEmpty(); 
+    }
+}
